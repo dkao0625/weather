@@ -5,10 +5,16 @@ body {
   place-items: center;
   font-family: Arial, sans-serif;
   text-align: center;
+  color: #17324d;
+  background: linear-gradient(135deg, #dff3ff, #f7fbff);
 }
 
 main {
   width: min(90%, 36rem);
+  padding: 2rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 0.75rem 2rem rgb(23 50 77 / 12%);
 }
 
 form {
