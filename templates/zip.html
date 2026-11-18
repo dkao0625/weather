@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather by ZIP Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main>
+      <h1>Weather by US ZIP code</h1>
+      <form method="post" action="/zip">
+        <label for="zip_code">US ZIP code</label>
+        <input
+          id="zip_code"
+          name="zip_code"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          value="{{ zip_code }}"
+          required
+        >
+        <button type="submit">Get weather</button>
+      </form>
+
+      {% if error %}
+        <p role="alert">{{ error }}</p>
+      {% endif %}
+
+      {% if weather %}
+        <section aria-live="polite">
+          <h2>{{ place_name }}</h2>
+          <p>{{ weather.temperature }}&deg;F</p>
+          <p>{{ weather.description }}</p>
+        </section>
+      {% endif %}
+    </main>
+  </body>
+</html>
